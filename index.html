@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Landing Page 1 | STMIK Amik Bandung</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Tambahkan smooth scrolling ke semua link
+            $("a").on("click", function(event) {
+                // Pastikan this.hash memiliki nilai sebelum mengganti perilaku default
+                if (this.hash !== "") {
+                    // Mencegah perilaku klik tautan default
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Menggunakan metode animate() jQuery untuk menambahkan scroll halaman yang smooth
+                    // Bilangan opsional (800) menentukan jumlah milidetik yang diperlukan untuk melakukan scrolling ke area yang ditentukan
+                    $("html, body").animate({
+                            scrollTop: $(hash).offset().top,
+                        },
+                        800,
+                        function() {
+                            // Tambahkan hash (#) ke URL setelah selesai scrolling (perilaku klik default)
+                            window.location.hash = hash;
+                        }
+                    );
+                } // End if
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header id="home" class="home">
+        <div class="logo">
+            <img src="assets/logo/Li-Ning.png" alt="" />
+        </div>
+        <nav>
+            <!-- ul.menu-list>(li>a)*5 -->
+            <ul class="menu-list">
+                <li><a href="">Home</a></li>
+                <li>
+                    <a href="#about">About Us</a>
+                </li>
+                <li><a href="#product ">Product</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="konten">
+            <h1>Jadikan ilmu untuk memberi manfaat kepada yang lain</h1>
+        </div>
+        <div class="panah">
+            <a href="#about"><i class="fa-solid fa-chevron-down fa-5x"></i></a>
+        </div>
+    </header>
+    <div id="about" class="about">
+        <div class="tulisan">
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni perferendis eos!</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consectetur officia hic eius possimus debitis quas error, blanditiis autem iusto id ab quis laudantium eos corporis maiores unde exercitationem, vel nesciunt mollitia pariatur magni!
+                Recusandae!
+            </p>
+            <a href=" " class="btnselengkapnya">Selengkapnya</a>
+        </div>
+        <!-- .gambar>(img[src="assets/img/main/lineart/$.png "])*5 -->
+        <div class="gambar">
+            <img class="gbr1" src="assets/img/main/lineart/1.png " alt=" " />
+            <img class="gbr3" src="assets/img/main/lineart/3.png " alt=" " />
+            <img class="gbr4" src="assets/img/main/lineart/4.png " alt=" " />
+            <img class="gbr5" src="assets/img/main/lineart/5.png " alt=" " />
+            <img class="lady" src="assets/img/main/lineart/16.png " alt=" " />
+        </div>
+    </div>
+    <div id="product" class="product">
+        <div class="jdlproduct">
+            <h1>Product</h1>
+            <p1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, id a? Quos vero, aut doloribus aspernatur rerum quod illum dignissimos</p1>
+        </div>
+        <div class="product1">
+            <img src="assets/img//main/pexels-designecologist-1779487(1).jpg " alt=" " />
+            <h2>Lorem Product 1</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti sunt praesentium enim sequi excepturi.</p>
+        </div>
+        <div class="product2">
+            <img src="assets/img/main/pexels-florenz-mendoza-5489402.jpg " alt=" " />
+            <h2>Lorem Product 2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam veritatis blanditiis exercitationem ullam non corrupti.</p>
+        </div>
+        <div class="product3">
+            <img src="assets/img/main/pexels-fox-1038916.jpg " alt=" " />
+            <h2>Lorem Product 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque praesentium fugit debitis facilis repudiandae et.</p>
+        </div>
+    </div>
+    <div id="gallery" class="gallery">
+        <div class="gbrglr">
+            <img src="assets/img/main/pexels-designecologist-1779487(1).jpg " alt=" " />
+            <img src="assets/img/main/pexels-florenz-mendoza-5489402.jpg " alt=" " />
+            <img src="assets/img/main/pexels-fox-1038916.jpg " alt=" " />
+            <img src="assets/img/main/pexels-lucie-liz-3165335.jpg " alt=" " />
+            <img src="assets/img/main/pexels-maik-poblocki-3812048.jpg " alt=" " />
+            <img src="assets/img/main/pexels-sharad-kachhi-7199194.jpg " alt=" " />
+        </div>
+        <div class="tulisanglr">
+            <h1>Gallery</h1>
+            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, beatae.</h2>
+            <br />
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.Qui maiores rerum aliquid laudantium voluptas reiciendis dicta a mollitia ex illo minima, voluptate consectetur. Voluptate itaque soluta, illum cumque quibusdam incidunt.
+            </p>
+        </div>
+    </div>
+    <footer id="contact">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.674867010688!2d107.62455901431728!3d-6.929410469751893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e87f3af10001%3A0x30abc10f9f62e149!2sPT%20LSKK!5e0!3m2!1sid!2sid!4v1649645313488!5m2!1sid!2sid "
+            width="600 " height="450 " style="border: 0" allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+        <div class="footerlist">
+            <ul>
+                <li>
+                    <p href=" ">Menu</p>
+                </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <p href=" ">Product</p>
+                </li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#product">Product</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <p href=" ">Company</p>
+                </li>
+                <li><a href=" ">Company</a></li>
+                <li><a href=" ">Company</a></li>
+                <li><a href=" ">Company</a></li>
+                <li><a href=" ">Company</a></li>
+            </ul>
+        </div>
+        <div class="sosmed">
+            <i class="fa-brands fa-facebook fa-3x"></i>
+            <i class="fa-brands fa-twitter fa-3x"></i>
+            <i class="fa-brands fa-instagram fa-3x"></i>
+            <i class="fa-brands fa-linkedin fa-3x"></i>
+        </div>
+    </footer>
+</body>
+
+</html>
