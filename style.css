@@ -401,6 +401,7 @@ nav ul li a:hover {
 footer {
     background-color: #181625;
     display: grid;
+    width: 100%;
     grid-template: "map footerlist footerlist" 150px "map footerlist footerlist" 150px "sosmed . ." 100px / 1fr 1fr 1fr;
     padding: 20px;
     font-family: "Poppins", sans-serif;
@@ -565,6 +566,9 @@ iframe {
         opacity: 1;
         transform: translateY(0);
     }
+    header {
+        height: fit-content;
+    }
     .ikon {
         display: inline-block;
         font-size: 2em;
@@ -636,6 +640,9 @@ iframe {
         justify-self: end;
         padding-right: 50px;
     }
+    .menu ul {
+        width: 70%;
+    }
     .konten h1 {
         font-size: 2em;
     }
@@ -643,19 +650,30 @@ iframe {
         grid-template-areas: "gambar gambar" "tulisan tulisan";
         height: fit-content;
     }
+    .gambar {
+        display: grid;
+        justify-content: center;
+    }
+    .gbr {
+        display: none;
+    }
     .tulisan {
         justify-items: center;
         text-align: center;
     }
     .product {
-        padding: 20px;
+        padding: 10px;
         gap: 30px 0px;
+    }
+    .product .jdlproduct p1 {
+        width: 100%;
     }
     .gallery {
         grid-template-areas: "gbrglr gbrglr" "tulisanglr tulisanglr";
         gap: 10px 0px;
         padding-bottom: 50px;
         height: fit-content;
+        justify-content: center;
     }
     .gbrglr {
         grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
@@ -685,19 +703,25 @@ iframe {
         line-height: 30px;
     }
     .tulisanglr p {
+        margin: auto;
         width: 100%;
         font-size: 0.9em;
     }
     footer {
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "footerlist footerlist footerlist" "map map map" "sosmed sosmed sosmed";
-        padding: 20px;
+        padding: 0px;
         gap: 20px 0px;
     }
     iframe {
+        width: 300px;
+        height: 250px;
         justify-self: center;
     }
     .sosmed {
         justify-self: center;
+    }
+    .panah2 a .panahscroll {
+        left: 300px;
     }
 }
