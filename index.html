@@ -45,16 +45,6 @@
             <img src="assets/logo/Li-Ning.png" alt="" />
         </div>
         <nav>
-            <!-- ul.menu-list>(li>a)*5 -->
-            <ul class="menu-list">
-                <li><a href="">Home</a></li>
-                <li>
-                    <a href="#about">About Us</a>
-                </li>
-                <li><a href="#product ">Product</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
         </nav>
         <div class="konten">
             <h1>Jadikan ilmu untuk memberi manfaat kepada yang lain</h1>
@@ -62,6 +52,24 @@
         <div class="panah">
             <a href="#about"><i class="fa-solid fa-chevron-down fa-5x"></i></a>
         </div>
+        <nav class="menu">
+            <div class="menu-toggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- ul.menu>(li>a)*5 -->
+            <ul class="menu-list">
+                <li><a href=""><b class="ikon">🏡</b>Home</a></li>
+                <li>
+                    <a href="#about"><b class="ikon">📜</b>About Us</a>
+                </li>
+                <li><a href="#product "><b class="ikon">📦</b>Product</a></li>
+                <li><a href="#gallery"><b class="ikon">🎭</b>Gallery</a></li>
+                <li><a href="#contact"><b class="ikon">📞</b>Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
     <div id="about" class="about">
         <div class="tulisan">
@@ -101,6 +109,8 @@
             <h2>Lorem Product 3</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque praesentium fugit debitis facilis repudiandae et.</p>
         </div>
+        <a href=" " class="btnselengkapnya2">Selengkapnya</a>
+    </div>
     </div>
     <div id="gallery" class="gallery">
         <div class="gbrglr">
@@ -158,7 +168,19 @@
             <i class="fa-brands fa-instagram fa-3x"></i>
             <i class="fa-brands fa-linkedin fa-3x"></i>
         </div>
+        <div class="panah2">
+            <a href="#home"><i class="panahscroll fa-solid fa-circle-arrow-up"></i></a>
+        </div>
     </footer>
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle input");
+        const nav = document.querySelector("nav ul");
+
+        menuToggle.addEventListener("click", function() {
+            nav.classList.toggle("slide");
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

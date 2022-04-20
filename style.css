@@ -28,31 +28,32 @@ body {
 
 header {
     width: 100%;
-    /* width: 1350px; */
-    height: 625px;
+    /* height menggunakan satuan vh supaya full satu layar vh(viewheight) */
+    height: 100vh;
     display: grid;
     grid-template: "logo nav" 1fr "konten konten" 440px "panah panah" 100px /1fr 1fr;
-    /* merubah gambar background */
-    background-image: url(assets/img/header/background-header.jpg);
+    /* merubah gambar background & linear gradient untuk memberikan efek transparan kehitaman */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.5)), url(assets/img/header/background-header.jpg);
     /* supaya ukuran gambar muat pada background */
     background-size: cover;
     /* agar box tidak berubah */
     box-sizing: border-box;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0));
     justify-items: center;
 }
 
 .logo {
-    width: 500px;
+    width: 100%;
     grid-area: logo;
     display: grid;
 }
 
 .logo img {
     justify-items: left;
+    margin-left: 50px;
     height: 85px;
     width: 150px;
+    display: grid;
 }
 
 nav {
@@ -81,17 +82,23 @@ nav ul li a:hover {
     color: #e63946;
 }
 
+.ikon {
+    display: none;
+}
+
 .konten {
-    display: flex;
+    display: grid;
     grid-area: konten;
     justify-content: center;
     align-items: center;
+    padding: 100px;
 }
 
 .konten h1 {
-    width: 1000px;
+    display: grid;
+    width: 100%;
     font-size: 4em;
-    line-height: 1;
+    line-height: 1.3;
     color: #f1faee;
     text-align: center;
     font-family: "Poppins", sans-serif;
@@ -125,17 +132,18 @@ nav ul li a:hover {
     background-color: #f1faee;
     display: grid;
     width: 100%;
-    height: 658px;
+    height: 100vh;
     box-sizing: border-box;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "tulisan gambar";
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "tulisan gambar" "tulisan gambar";
     justify-content: center;
     align-items: center;
 }
 
-.tulisan {
+.about .tulisan {
     display: grid;
-    grid-template: tulisan;
+    grid-area: tulisan;
     gap: 20px;
 }
 
@@ -145,13 +153,13 @@ nav ul li a:hover {
     font-family: "Poppins", sans-serif;
 }
 
-.tulisan p {
+.about .tulisan p {
     font-family: sans-serif;
     font-size: 14px;
     line-height: 1.5;
 }
 
-.btnselengkapnya {
+.about .btnselengkapnya {
     width: 120px;
     padding: 10px;
     border-radius: 7px;
@@ -169,7 +177,7 @@ nav ul li a:hover {
 }
 
 .gambar {
-    grid-template: gambar;
+    grid-area: gambar;
 }
 
 .lady {
@@ -212,14 +220,37 @@ nav ul li a:hover {
 }
 
 .product {
+    padding: 50px;
+    order: inherit;
     display: grid;
     width: 100%;
-    height: 658px;
+    height: 100vh;
     box-sizing: border-box;
     background-color: #181625;
-    grid-template: "jdlproduct jdlproduct jdlproduct" 180px "product1 product2 product3" 2fr / 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px 0px;
     justify-items: center;
     font-family: "Poppins", sans-serif;
+}
+
+.jdlproduct {
+    order: 1;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.jdlproduct h1 {
+    font-size: 2.8em;
+    color: #e63946;
+}
+
+.product .jdlproduct p1 {
+    display: block;
+    width: 500px;
+    color: #f1faee;
+    font-family: sans-serif;
+    line-height: 25px;
+    margin: auto;
 }
 
 .product img {
@@ -241,27 +272,8 @@ nav ul li a:hover {
     line-height: 20px;
 }
 
-.jdlproduct {
-    text-align: center;
-    grid-area: jdlproduct;
-}
-
-.jdlproduct h1 {
-    font-size: 2.8em;
-    margin: 75px auto 5px;
-    color: #e63946;
-}
-
-.product .jdlproduct p1 {
-    display: block;
-    width: 500px;
-    color: #f1faee;
-    font-family: sans-serif;
-    line-height: 25px;
-}
-
 .product1 {
-    grid-area: product1;
+    order: 2;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     width: 300px;
@@ -277,7 +289,7 @@ nav ul li a:hover {
 }
 
 .product2 {
-    grid-area: product2;
+    order: 3;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     width: 300px;
@@ -292,7 +304,7 @@ nav ul li a:hover {
 }
 
 .product3 {
-    grid-area: product3;
+    order: 4;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     width: 300px;
@@ -307,20 +319,42 @@ nav ul li a:hover {
     box-shadow: 0 0 20px rgba(141, 28, 28, 0.8);
 }
 
+.btnselengkapnya2 {
+    grid-column: 1 / -1;
+    justify-self: center;
+    order: 5;
+    height: 20px;
+    width: 120px;
+    padding: 10px;
+    border-radius: 17px;
+    font-family: sans-serif;
+    color: azure;
+    text-decoration: none;
+    margin-inline-end: 20px;
+    background-color: #e63946;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btnselengkapnya2:hover {
+    transition: 0.5s;
+    background-color: #3b06fa;
+}
+
 .gallery {
     display: grid;
     width: 100%;
-    height: 630px;
+    height: 100vh;
     box-sizing: border-box;
     background-color: #f1faee;
-    grid-template: "gblglr tulisanglr" 100% / 1fr 1fr;
+    grid-template: "gbrglr tulisanglr" 1fr / 1fr 1fr;
     justify-items: center;
     font-family: "Poppins", sans-serif;
     gap: 30px;
 }
 
 .gbrglr {
-    grid-area: gblglr;
+    grid-area: gbrglr;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-self: end;
@@ -335,18 +369,18 @@ nav ul li a:hover {
 
 .tulisanglr {
     justify-self: start;
-    width: 580px;
+    width: 100%;
     grid-area: tulisanglr;
     align-self: center;
 }
 
 .tulisanglr h1 {
     color: #e63946;
-    font-size: 3.2em;
+    font-size: 2.5em;
 }
 
 .tulisanglr h2 {
-    font-size: 2.7em;
+    font-size: 2em;
     line-height: 50px;
 }
 
@@ -354,6 +388,7 @@ nav ul li a:hover {
     font-family: sans-serif;
     font-size: 1em;
     line-height: 25px;
+    width: 600px;
 }
 
 .gallery .gbrglr img {
@@ -366,7 +401,7 @@ nav ul li a:hover {
 footer {
     background-color: #181625;
     display: grid;
-    grid-template: "map footerlist footerlist" 300px "sosmed . ." 100px / 1fr 1fr 1fr;
+    grid-template: "map footerlist footerlist" 150px "map footerlist footerlist" 150px "sosmed . ." 100px / 1fr 1fr 1fr;
     padding: 20px;
     font-family: "Poppins", sans-serif;
 }
@@ -405,8 +440,8 @@ iframe {
 }
 
 .sosmed {
-    width: 370px;
     grid-area: sosmed;
+    width: 370px;
     display: flex;
     justify-content: space-evenly;
     justify-self: end;
@@ -422,4 +457,247 @@ iframe {
     transform: scale(1.2);
     transition: 0.7s;
     color: #e63946;
+}
+
+.panah2 a .panahscroll {
+    color: #e63946;
+    position: fixed;
+    font-size: 3em;
+    right: 50px;
+    bottom: 50px;
+    display: none;
+}
+
+.panah2 a .panahscroll.scroll-active {
+    display: block;
+}
+
+
+/* Borgir Menu */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 999;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+
+/* Borgir Menu Animation */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: aliceblue;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    background-color: aliceblue;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* Resnponsive Breakpoint titik dimana designnya akan berubah*/
+
+
+/* ketika lebarnya berapa style apa yang kita rubah */
+
+@media screen and (max-width: 990px) {
+    .menu {
+        justify-self: end;
+        padding-right: 65px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: start;
+        z-index: 1;
+        background-color: #333;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+        padding-left: 50px;
+    }
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .ikon {
+        display: inline-block;
+        font-size: 2em;
+    }
+    .about {
+        font-size: 0.59em;
+        padding: 50px;
+    }
+    .about .btnselengkapnya {
+        font-size: 1.5em;
+    }
+    .lady {
+        width: 500px;
+        height: 300px;
+        margin-top: -100px;
+    }
+    .gbr1 {
+        width: 70px;
+        height: 70px;
+        left: 380px;
+        top: 80px;
+    }
+    .gbr3 {
+        width: 150px;
+        height: 80px;
+        left: 210px;
+    }
+    .gbr4 {
+        width: 80px;
+        height: 80px;
+        right: 180px;
+        top: 250px;
+    }
+    .gbr5 {
+        width: 80px;
+        height: 80px;
+        right: 220px;
+    }
+    .product {
+        padding: 50px 100px;
+        height: max-content;
+        gap: 70px 0px;
+    }
+    .product .product1,
+    .product .product2,
+    .product .product3 {
+        justify-self: center;
+    }
+    .gallery {
+        padding: 40px;
+    }
+    .gallery .tulisanglr {
+        font-size: 0.8em;
+        width: 370px;
+    }
+    .gallery .tulisanglr p {
+        width: 300px;
+    }
+    footer {
+        padding-left: 100px;
+    }
+}
+
+
+/* @media screen and (max-width: 768px) {} */
+
+@media screen and (max-width: 660px) {
+    .menu {
+        justify-self: end;
+        padding-right: 50px;
+    }
+    .konten h1 {
+        font-size: 2em;
+    }
+    .about {
+        grid-template-areas: "gambar gambar" "tulisan tulisan";
+        height: fit-content;
+    }
+    .tulisan {
+        justify-items: center;
+        text-align: center;
+    }
+    .product {
+        padding: 20px;
+        gap: 30px 0px;
+    }
+    .gallery {
+        grid-template-areas: "gbrglr gbrglr" "tulisanglr tulisanglr";
+        gap: 10px 0px;
+        padding-bottom: 50px;
+        height: fit-content;
+    }
+    .gbrglr {
+        grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+        width: 100%;
+        margin: auto;
+        padding: 30px;
+        gap: 30px;
+        box-sizing: border-box;
+    }
+    .gallery .gbrglr img {
+        width: 100%;
+        height: 80px;
+        border: 8px solid #1d1a2d;
+        border-radius: 7px;
+    }
+    .tulisanglr {
+        justify-self: center;
+        text-align: center;
+    }
+    .tulisanglr h1 {
+        margin-top: -40px;
+        font-size: 1.7em;
+        line-height: 30px;
+    }
+    .tulisanglr h2 {
+        font-size: 1.5em;
+        line-height: 30px;
+    }
+    .tulisanglr p {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    footer {
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "footerlist footerlist footerlist" "map map map" "sosmed sosmed sosmed";
+        padding: 20px;
+        gap: 20px 0px;
+    }
+    iframe {
+        justify-self: center;
+    }
+    .sosmed {
+        justify-self: center;
+    }
 }
